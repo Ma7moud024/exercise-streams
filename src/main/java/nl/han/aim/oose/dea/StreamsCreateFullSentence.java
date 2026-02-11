@@ -5,8 +5,15 @@ import java.util.stream.Collectors;
 
 public class StreamsCreateFullSentence {
     String createAFullSentenceFromTheList(List<String> input) {
-        // TODO: implement
 
-        return "";
+        return input.stream()
+                .reduce((a, b) -> a + " " + b)
+                .orElse("");
+
+//
+//                .collect(Collectors.joining(" "));
+//        waarom heb ik orElse nodig en wat betekent identity
+
+
     }
 }

@@ -5,6 +5,8 @@ import nl.han.aim.oose.dea.helpers.Product;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static nl.han.aim.oose.dea.helpers.ProductCategory.GADGETS;
+
 public class StreamsCalculateTotalCost {
     int calculateTotalCostOfAllProducts(List<Product> products) {
 
@@ -16,8 +18,11 @@ public class StreamsCalculateTotalCost {
     }
 
     int calculateTotalCostOfAllGadgets(List<Product> products) {
-        // TODO: implement
 
-        return 0;
+        return products.stream()
+                .filter(Product -> Product.getCategory() == GADGETS)
+                .mapToInt(Product::getPrice)
+                .sum();
+
     }
 }
